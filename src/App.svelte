@@ -3,13 +3,19 @@
   import Login from "./pages/Login.svelte";
   import PrivateRoute from "./PrivateRoute.svelte";
   import {logout, user} from "./store/auth";
+  import {errors} from "./store/errors";
+  import Errors from "./components/Errors.svelte";
 
   const logoutAction = async (): Promise<void> => {
     return await logout();
   }
+
+  let APIErrors: string[]
+  errors.subscribe((errors: string[]) => {APIErrors = errors});
 </script>
 
 <main>
+  <Errors errors={APIErrors} />
   <Router>
     <Route path="login">
       <Login />
@@ -17,13 +23,9 @@
     <PrivateRoute path="/" let:location let:registerFocus>
       <p>{$user}</p>
       <p>Panel</p>
-      <a href="/logout">aaa</a>
-    </PrivateRoute>
-    <PrivateRoute path="/logout" let:location let:registerFocus>
-      <p on:click={logoutAction}>logout</p>
+      <p on:click={logoutAction}>Logout</p>
     </PrivateRoute>
   </Router>
-
 </main>
 
 <style lang="postcss">
