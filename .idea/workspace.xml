@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="Integrate TailWind and Swelte-Navigate">
-      <change afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Error.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Errors.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/errors.ts" afterDir="false" />
+    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="Base Store, API and Errors (alerts) Logic. Login Page">
+      <change afterPath="$PROJECT_DIR$/src/api/adminInfo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/endpoint.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ModelAdmin.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Panel.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/endpoint.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Error.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Error.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Errors.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Errors.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +31,10 @@
       <list>
         <option value="PrivateRoute" />
         <option value="PrivateRouteGuard.svelte" />
-        <option value="TypeScript File" />
         <option value="Error" />
+        <option value="Panel.svelte" />
+        <option value="ModelAdmin" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -73,7 +78,9 @@
       <updated>1700348188334</updated>
       <workItem from="1700348189920" duration="38000" />
       <workItem from="1700348232187" duration="5019000" />
-      <workItem from="1700866661219" duration="21711000" />
+      <workItem from="1700866661219" duration="22205000" />
+      <workItem from="1700948280627" duration="29097000" />
+      <workItem from="1701053945196" duration="4986000" />
     </task>
     <task id="LOCAL-00001" summary="Integrate TailWind and Swelte-Navigate">
       <option name="closed" value="true" />
@@ -83,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700877295025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Base Store, API and Errors (alerts) Logic. Login Page">
+      <option name="closed" value="true" />
+      <created>1700947113196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700947113196</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integrate TailWind and Swelte-Navigate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrate TailWind and Swelte-Navigate" />
+    <MESSAGE value="Base Store, API and Errors (alerts) Logic. Login Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base Store, API and Errors (alerts) Logic. Login Page" />
   </component>
 </project>

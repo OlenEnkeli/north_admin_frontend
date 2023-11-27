@@ -2,9 +2,10 @@
   import {Router, Route} from "svelte-navigator";
   import Login from "./pages/Login.svelte";
   import PrivateRoute from "./PrivateRoute.svelte";
-  import {logout, user} from "./store/auth";
+  import {logout} from "./store/auth";
   import {errors} from "./store/errors";
   import Errors from "./components/Errors.svelte";
+  import Panel from "./pages/Panel.svelte";
 
   const logoutAction = async (): Promise<void> => {
     return await logout();
@@ -14,16 +15,14 @@
   errors.subscribe((errors: string[]) => {APIErrors = errors});
 </script>
 
-<main>
+<main id="root">
   <Errors errors={APIErrors} />
   <Router>
     <Route path="login">
       <Login />
     </Route>
     <PrivateRoute path="/" let:location let:registerFocus>
-      <p>{$user}</p>
-      <p>Panel</p>
-      <p on:click={logoutAction}>Logout</p>
+      <Panel logoutAction={logoutAction} />
     </PrivateRoute>
   </Router>
 </main>

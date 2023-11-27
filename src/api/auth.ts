@@ -21,7 +21,7 @@ const login = async (login: string, password: string): Promise<APITokens | null>
     let response;
 
     try {
-        response = await API.post("/admin/api/login", {login: login, password: password});
+        response = await API.post("/auth/login", {login: login, password: password});
     } catch (error) {
         addError('Unable to login: wrong login or password.');
         return null;
@@ -41,7 +41,7 @@ const currentUser = async (auth_token: string): Promise<User | null> => {
     let response;
 
     try {
-        response = await API.get("/users/current", undefined, auth_token);
+        response = await API.get("/auth/users/current", undefined, auth_token);
     } catch (error) {
         addError(`Unable to get current user: ${error}`);
         return null;

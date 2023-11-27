@@ -1,14 +1,23 @@
-import { getCookie, setCookie, deleteCookie } from "svelte-cookie";
+import {getCookie, setCookie, deleteCookie} from "svelte-cookie";
 import {type Writable, writable} from "svelte/store";
 import {authAPI, type APITokens, type User} from "../api/auth";
 
 export const user: Writable<User | null> = writable(null);
+export const tokens: Writable<APITokens | null> = writable(null);
+
 
 export const checkAuth = async (): Promise<void> => {
     let accessToken = getCookie("accessToken");
+    let refreshToken = getCookie("refreshToken");
+
     if (accessToken === "") {
         return
     }
+
+    tokens.set({
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+    })
 
     let currentUser: User | null = await authAPI.currentUser(accessToken);
     if (currentUser) {
