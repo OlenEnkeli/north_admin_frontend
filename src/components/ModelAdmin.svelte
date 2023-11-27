@@ -1,8 +1,9 @@
 <script lang="ts">
-    import type {AdminModel} from "../api/adminInfo";
+    import {type AdminModel} from "../api/adminInfo";
+    import {type ListItems} from "../api/endpoint";
+
     import {onMount} from "svelte";
     import {endpointList} from "../store/endpoint";
-    import type {type ListItems} from "../api/endpoint";
 
     export let modelName: string;
     export let modelInfo: AdminModel;
@@ -12,12 +13,11 @@
     let selectedElements: boolean[] = [];
     let allSelected: boolean = false;
     let itemOnPage: number = 25;
-    let pagesAmount: number;
     let currentPage: number = 1;
     let includeSoftDeleted: boolean = true;
     let items: ListItems | null = null;
 
-
+    let pagesAmount: number;
     let sortBy: string;
 
     const getItems = async (): Promise<void> => {
@@ -72,7 +72,6 @@
 
         pagesAmount = Math.ceil(items.totalAmount / items.paginationSize);
     });
-
 </script>
 
 <div class="panel__main h-full w-full">
