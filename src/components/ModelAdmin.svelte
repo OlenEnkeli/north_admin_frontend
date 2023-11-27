@@ -134,7 +134,7 @@
             <tr>
                 <th scope="col" class="p-4">
                     <div class="flex items-center">
-                        <input id="checkbox-table-search-1" on:click={selectAll}} type="checkbox" class="w-4 h-4 border-gray-300 rounded dark:border-gray-600">
+                        <input id="checkbox-table-search-1" on:click={selectAll} type="checkbox" class="w-4 h-4 border-gray-300 rounded dark:border-gray-600">
                         <label for="checkbox-table-search-1" class="sr-only">select</label>
                     </div>
                 </th>
