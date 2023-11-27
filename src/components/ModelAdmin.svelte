@@ -36,6 +36,7 @@
             return;
 
         selectedElements = Array(items.items.length).fill(false);
+        allSelected = false;
 
         currentPage = page;
         await getItems();
