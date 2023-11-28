@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  important: true,
   theme: {
     extend: {
       colors: {
@@ -15,6 +16,7 @@ export default {
         'red': '#8d001a',
         'red-300': '#e3012d',
         'red-400': '#cb012a',
+        'red-600': '#a10114',
         'red-700': '#790110',
         'red-800': '#54000d',
         'red-900': '#2a0005',

@@ -7,6 +7,7 @@ export const endpointList = async (
     softDeleteIncluded: boolean,
     page: number,
     pageSize: number,
+    sortAsc: boolean,
     sortBy?: string,
     filters?: object,
 ): Promise<ListItems | null> => {
@@ -25,6 +26,7 @@ export const endpointList = async (
         softDeleteIncluded,
         page,
         pageSize,
+        sortAsc,
         sortBy,
         filters,
     )

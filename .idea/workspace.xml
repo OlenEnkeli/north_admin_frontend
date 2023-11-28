@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="Basic logic and UI" />
+    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="Fix">
+      <change afterPath="$PROJECT_DIR$/src/components/AdminHeader.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AdminModal.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AdminPagination.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AdminTable.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/endpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModelAdmin.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Panel.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Panel.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/endpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +31,10 @@
         <option value="Panel.svelte" />
         <option value="ModelAdmin" />
         <option value="TypeScript File" />
+        <option value="AdminHeader" />
+        <option value="AdminTable" />
+        <option value="AdminPagination" />
+        <option value="AdminModal" />
       </list>
     </option>
   </component>
@@ -65,6 +81,7 @@
       <workItem from="1700866661219" duration="22205000" />
       <workItem from="1700948280627" duration="29097000" />
       <workItem from="1701053945196" duration="5306000" />
+      <workItem from="1701059282224" duration="19210000" />
     </task>
     <task id="LOCAL-00001" summary="Integrate TailWind and Swelte-Navigate">
       <option name="closed" value="true" />
@@ -90,7 +107,39 @@
       <option name="project" value="LOCAL" />
       <updated>1701059260896</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1701059308651</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701059308651</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1701059361145</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701059361145</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1701059472697</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701059472697</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1701059627378</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701059627378</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +149,7 @@
     <MESSAGE value="Integrate TailWind and Swelte-Navigate" />
     <MESSAGE value="Base Store, API and Errors (alerts) Logic. Login Page" />
     <MESSAGE value="Basic logic and UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic logic and UI" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
 </project>

@@ -6,6 +6,7 @@ export type ListItems = {
     paginationSize: number;
     currentPageAmount: number;
     totalAmount: number;
+    pagesAmount: number;
     items: object[];
 }
 
@@ -16,6 +17,7 @@ interface EndpointAPI {
         softDeleteIncluded: boolean,
         page: number,
         pageSize: number,
+        sortAsc: boolean,
         sortBy?: string,
         filters?: object,
     ) => Promise<ListItems | null>;
@@ -28,6 +30,8 @@ const list = async (
     softDeleteIncluded: boolean,
     page: number,
     pageSize: number,
+    sortAsc: number,
+    sortByAsc: boolean,
     sortBy?: string,
     filters?: object,
 ): Promise<ListItems | null> => {
@@ -37,11 +41,12 @@ const list = async (
         response = await API.get(
             `/${model}/`,
             {
-                soft_delete_included: softDeleteIncluded,
+                soft_deleted_included: softDeleteIncluded,
                 filters: '{}',
                 page: page,
-                page_size: pageSize,
+                pagination_size: pageSize,
                 sort_by: sortBy,
+                sort_asc: sortAsc,
             },
             auth_token,
         );
@@ -57,6 +62,7 @@ const list = async (
             currentPageAmount: response.data.current_page_amount,
             totalAmount: response.data.total_amount,
             items: response.data.items,
+            pagesAmount: response.data.pages_amount,
         }
     } catch (error) {
         addError(`Unable to get ${model} list: parse error - ${error}`);
