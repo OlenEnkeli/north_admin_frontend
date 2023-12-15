@@ -1,5 +1,5 @@
 import {API} from "./api";
-import {addError} from "../store/errors";
+import {alertStore} from "../store/alert";
 
 export type APITokens = {
     accessToken: string;
@@ -12,8 +12,8 @@ export type User = {
     fullName: string;
 }
 
-interface AuthAPI {
-    login: (login: string, password: string) => Promise<APITokens | null>,
+export type AuthAPI = {
+    login: (login: string, password: string) => Promise<APITokens | null>;
     currentUser: (auth_token: string) => Promise<User | null>;
 }
 
@@ -23,7 +23,10 @@ const login = async (login: string, password: string): Promise<APITokens | null>
     try {
         response = await API.post("/auth/login", {login: login, password: password});
     } catch (error) {
-        addError('Unable to login: wrong login or password.');
+        alertStore.add({
+            type: 'error',
+            message:'Unable to login: wrong login or password.',
+        });
         return null;
     }
 
@@ -33,7 +36,10 @@ const login = async (login: string, password: string): Promise<APITokens | null>
             refreshToken: response.data.refresh_token,
         }
     } catch (error) {
-        addError(`Unable to login: parse error - ${error}`);
+        alertStore.add({
+            type: 'error',
+            message: `Unable to login: parse error - ${error}`,
+        });
     }
 };
 
@@ -43,7 +49,10 @@ const currentUser = async (auth_token: string): Promise<User | null> => {
     try {
         response = await API.get("/auth/users/current", undefined, auth_token);
     } catch (error) {
-        addError(`Unable to get current user: ${error}`);
+        alertStore.add({
+            type: 'error',
+            message: `Unable to get current user: ${error}`,
+        });
         return null;
     }
 
@@ -54,7 +63,10 @@ const currentUser = async (auth_token: string): Promise<User | null> => {
             fullName: response.data.fullname,
         }
     } catch (error) {
-        addError(`Unable to get current user: parse error - ${error}`);
+        alertStore.add({
+            type: 'error',
+            message: `Unable to get current user: parse error - ${error}`,
+        });
     }
 };
 

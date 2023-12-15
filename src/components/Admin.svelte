@@ -3,12 +3,13 @@
     import {type ListItems} from "../api/endpoint";
 
     import {onMount} from "svelte";
-    import {endpointList} from "../store/endpoint";
+    import {endpointStore} from "../store/endpoint";
     import {range} from "../helpers";
     import AdminHeader from "./AdminHeader.svelte";
     import AdminTable from "./AdminTable.svelte";
     import AdminPagination from "./AdminPagination.svelte";
     import AdminModal from "./AdminModal.svelte";
+    import {alertStore} from "../store/alert";
 
     export let modelName: string;
     export let modelInfo: AdminModel;
@@ -33,11 +34,12 @@
     let sortAsc: boolean = true;
 
     let modalWindowOpened: boolean = false;
-    let modalWindowAction: string = 'get';
+    let modalWindowAction: string | null = 'get';
+    let modalWindowsItem: object | null = null;
 
     const getItems = async (): Promise<void> => {
         await new Promise(r => setTimeout(r, 1));
-        items = await endpointList(
+        items = await endpointStore.list(
             modelName,
             includeSoftDeleted,
             currentPage,
@@ -100,7 +102,7 @@
         sortBy = undefined;
 
         await getItems();
-    }
+    };
 
     const paginate = async (page: number): Promise<void> => {
         if (!items)
@@ -135,10 +137,7 @@
     };
 
     const changeSortBy = async (column: string): Promise<void> => {
-        if (sortBy === column)
-            sortAsc = !sortAsc;
-        else
-            sortAsc = true;
+        sortAsc = sortBy === column ? !sortAsc : true
 
         sortBy = column;
         await getItems();
@@ -150,6 +149,44 @@
 
         allSelected = !allSelected;
         selectedElements = Array(items.items.length).fill(allSelected);
+    };
+
+    const getItemByIndex = (index: number): object | null => {
+        if (!items)
+            return null;
+
+        return items.items[index];
+    };
+
+    const openModal = (action: string, index?: number): undefined => {
+        switch (action) {
+            case 'create':
+                modalWindowOpened = true;
+                modalWindowAction = action;
+                break;
+
+            case 'get':
+            case 'edit':
+                if (index == undefined)
+                    return;
+
+                let item = getItemByIndex(index);
+                if (!item)
+                    return;
+
+                modalWindowsItem = item;
+
+                modalWindowOpened = true;
+                modalWindowAction = action;
+                break;
+
+            default:
+                alertStore.add({
+                    type: 'error',
+                    message: `Unknown action ${action}`,
+                });
+                break;
+        }
     };
 
     onMount(async () => {
@@ -167,18 +204,17 @@
 
 <div class="panel__main h-full w-full">
     {#if modalWindowOpened}
-    <AdminModal
-        bind:modalWindowOpened={modalWindowOpened}
-        bind:modelWindowAction={modalWindowAction}
-    />
+        <AdminModal
+            bind:modalWindowOpened={modalWindowOpened}
+            bind:modelWindowAction={modalWindowAction}
+        />
     {/if}
 
     <AdminHeader
         bind:items={items}
         bind:includeSoftDeleted={includeSoftDeleted}
         bind:itemsOnPage={itemsOnPage}
-        bind:modalWindowOpened={modalWindowOpened}
-        bind:modelWindowAction={modalWindowAction}
+        openModal={openModal}
         itemsOnPageOptions={itemsOnPageOptions}
         resetAll={resetAll}
         getItems={getItems}
@@ -190,6 +226,7 @@
         bind:sortBy={sortBy}
         bind:sortAsc={sortAsc}
         bind:selectedElements={selectedElements}
+        openModal={openModal}
         modelInfo={modelInfo}
         selectAll={selectAll}
         changeSortBy={changeSortBy}

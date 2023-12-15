@@ -4,15 +4,14 @@ const axiosAPI: AxiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/admin/api/",
 });
 
-
-interface APIType {
+export type APIType = {
     get: (url: string, data?: object, auth_token?: string) => Promise<any>,
     post: (url: string, data?: object, auth_token?: string) => Promise<any>,
     patch: (url: string, data?: object, auth_token?: string) => Promise<any>,
     deleteItem: (url: string, auth_token?: string) => Promise<any>,
 }
 
-const APIRequest = async (method: string, url: string, params?: object,  data?: object, auth_token?: string): Promise<AxiosResponse> => {
+const APIRequest = async (method: string, url: string, params?: object,  data?: object, auth_token?: string): Promise<AxiosResponse<any>> => {
     return await axiosAPI(
         {
             url: url,
@@ -33,8 +32,8 @@ const patch = (url: string, data?: object, auth_token?: string) => APIRequest("p
 const deleteItem = (url: string, auth_token?: string) => APIRequest("delete", url, undefined, undefined, auth_token);
 
 export const API: APIType = {
-    get,
-    post,
-    patch,
-    deleteItem,
+    get: get,
+    post: post,
+    patch: patch,
+    deleteItem: deleteItem,
 }

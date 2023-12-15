@@ -1,22 +1,25 @@
 <script lang="ts">
   import {Router, Route} from "svelte-navigator";
+
   import Login from "./pages/Login.svelte";
   import PrivateRoute from "./PrivateRoute.svelte";
-  import {logout} from "./store/auth";
-  import {errors} from "./store/errors";
-  import Errors from "./components/Errors.svelte";
+  import {authStore} from "./store/auth";
+  import {alerts, type Alert} from "./store/alert";
+  import Alerts from "./components/Alerts.svelte";
   import Panel from "./pages/Panel.svelte";
 
   const logoutAction = async (): Promise<void> => {
-    return await logout();
+    return await authStore.logout();
   }
 
-  let APIErrors: string[]
-  errors.subscribe((errors: string[]) => {APIErrors = errors});
+  let alertsList: Alert[];
+
+  alerts.subscribe((alerts: Alert[]) => {alertsList = alerts});
 </script>
 
 <main id="root">
-  <Errors errors={APIErrors} />
+  <Alerts alerts={alertsList} />
+
   <Router>
     <Route path="login">
       <Login />

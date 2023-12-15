@@ -14,9 +14,10 @@
     export let changeSortBy: (column: string) => Promise<void>;
 </script>
 
+
 <div class="panel__main__table mt-3 relative overflow-x-auto rounded">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-100 dark:text-gray-100">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-100">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-100 text-gray-100">
+        <thead class="text-xs uppercase bg-gray-800 dark:bg-gray-700 text-gray-100">
         <tr>
             <th scope="col" class="p-4">
                 <div class="flex items-center">

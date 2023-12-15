@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { useNavigate, useLocation, useFocus } from "svelte-navigator";
-    import {checkAuth, user} from "./store/auth.ts";
     import {onMount} from "svelte";
+    import { useNavigate, useLocation, useFocus } from "svelte-navigator";
+
+    import {authStore, user} from "./store/auth.ts";
+
 
     let isChecking: Boolean = true;
 
@@ -18,7 +20,7 @@
 
     onMount(async () => {
         try {
-            await checkAuth();
+            await authStore.check();
         } catch {
             navigateToLogin();
         } finally {

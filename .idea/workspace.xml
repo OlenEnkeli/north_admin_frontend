@@ -4,17 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="Fix">
-      <change afterPath="$PROJECT_DIR$/src/components/AdminHeader.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminModal.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPagination.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminTable.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers.ts" afterDir="false" />
+    <list default="true" id="7daa8112-c62e-4a43-97d5-c1636b5bcb9e" name="Changes" comment="A lot of functional and improvement">
+      <change afterPath="$PROJECT_DIR$/src/components/AdminSidebar.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/Button.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/alert.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PrivateRouteGuard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrivateRouteGuard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/adminInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/adminInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/endpoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModelAdmin.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Admin.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminHeader.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminHeader.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminTable.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Error.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Alert.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Errors.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Alerts.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Panel.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Panel.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/endpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/errors.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +49,8 @@
         <option value="AdminTable" />
         <option value="AdminPagination" />
         <option value="AdminModal" />
+        <option value="Button" />
+        <option value="AdminSidebar" />
       </list>
     </option>
   </component>
@@ -52,22 +68,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/anton/Projects/north_admin_frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/anton/Projects/north_admin_frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/anton/Projects/north_admin_frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,7 +98,10 @@
       <workItem from="1700866661219" duration="22205000" />
       <workItem from="1700948280627" duration="29097000" />
       <workItem from="1701053945196" duration="5306000" />
-      <workItem from="1701059282224" duration="19210000" />
+      <workItem from="1701059282224" duration="41882000" />
+      <workItem from="1701257643777" duration="13798000" />
+      <workItem from="1701341881516" duration="2000" />
+      <workItem from="1702655906014" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="Integrate TailWind and Swelte-Navigate">
       <option name="closed" value="true" />
@@ -139,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701059627378</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="A lot of functional and improvement">
+      <option name="closed" value="true" />
+      <created>1701136740178</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701136740178</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +178,7 @@
     <MESSAGE value="Base Store, API and Errors (alerts) Logic. Login Page" />
     <MESSAGE value="Basic logic and UI" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="A lot of functional and improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of functional and improvement" />
   </component>
 </project>

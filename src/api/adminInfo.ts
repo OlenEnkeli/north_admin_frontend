@@ -1,5 +1,5 @@
 import {API} from "./api";
-import {addError} from "../store/errors";
+import {alertStore} from "../store/alert";
 
 export type AdminInfo = {
     [index: string]: AdminModel;
@@ -43,7 +43,10 @@ const info = async (): Promise<AdminInfo | null> => {
     try {
         response = await API.get("/", undefined);
     } catch (error) {
-        addError(`Unable to get info about admin API: ${error}`);
+        alertStore.add({
+            type: 'error',
+            message: `Unable to get info about admin API: ${error}`,
+        });
         return null;
     }
 
@@ -101,7 +104,10 @@ const info = async (): Promise<AdminInfo | null> => {
             result[key] = adminModel;
         }
     } catch (error) {
-        addError(`Unable to get info about admin API: parse error - ${error}`);
+        alertStore.add({
+            type: 'error',
+            message: `Unable to get info about admin API: parse error - ${error}`,
+        });
     }
 
     return result;

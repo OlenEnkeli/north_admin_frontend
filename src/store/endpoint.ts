@@ -2,7 +2,19 @@ import {endpointAPI, type ListItems} from "../api/endpoint";
 import {tokens} from "./auth";
 import type {APITokens} from "../api/auth";
 
-export const endpointList = async (
+export type EndpointStore = {
+    list: (
+        model: string,
+        softDeleteIncluded: boolean,
+        page: number,
+        pageSize: number,
+        sortAsc: boolean,
+        sortBy?: string,
+        filters?: object,
+    ) => Promise<ListItems | null>,
+}
+
+const list = async (
     model: string,
     softDeleteIncluded: boolean,
     page: number,
@@ -31,3 +43,7 @@ export const endpointList = async (
         filters,
     )
 }
+
+export const endpointStore: EndpointStore = {
+    list: list,
+};

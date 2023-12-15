@@ -1,5 +1,5 @@
 import {API} from "./api";
-import {addError} from "../store/errors";
+import {alertStore} from "../store/alert";
 
 export type ListItems = {
     page: number;
@@ -10,7 +10,7 @@ export type ListItems = {
     items: object[];
 }
 
-interface EndpointAPI {
+export type EndpointAPI = {
     list: (
         model: string,
         auth_token: string,
@@ -21,7 +21,6 @@ interface EndpointAPI {
         sortBy?: string,
         filters?: object,
     ) => Promise<ListItems | null>;
-    // get: () => Promise<object | null>;
 }
 
 const list = async (
@@ -31,7 +30,6 @@ const list = async (
     page: number,
     pageSize: number,
     sortAsc: number,
-    sortByAsc: boolean,
     sortBy?: string,
     filters?: object,
 ): Promise<ListItems | null> => {
@@ -51,7 +49,10 @@ const list = async (
             auth_token,
         );
     } catch (error) {
-        addError(`Unable to get ${model} list: ${error}`);
+        alertStore.add({
+            type: 'error',
+            message:`Unable to get ${model} list: ${error}`,
+        });
         return null;
     }
 
@@ -61,14 +62,17 @@ const list = async (
             paginationSize: response.data.pagination_size,
             currentPageAmount: response.data.current_page_amount,
             totalAmount: response.data.total_amount,
-            items: response.data.items,
             pagesAmount: response.data.pages_amount,
+            items: response.data.items,
         }
     } catch (error) {
-        addError(`Unable to get ${model} list: parse error - ${error}`);
+        alertStore.add({
+            type: 'error',
+            message:`Unable to get ${model} list: parse error - ${error}`,
+        });
     }
 }
 
 export const endpointAPI: EndpointAPI = {
-  list: list,
+    list: list,
 };
